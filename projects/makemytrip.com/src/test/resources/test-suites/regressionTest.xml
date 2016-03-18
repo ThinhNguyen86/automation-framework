@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Cordova TestBeds" verbose="1">
+
+    <test name="Cordova TestBeds for mobiles">
+        <classes>
+            <class name="com.page.tests.LoginPageTest"/>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="automation-framework.selenium.core.TestStatusListener"/>
+    </listeners>
+
+</suite>

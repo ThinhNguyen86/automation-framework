@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+       default-lazy-init="true">
+
+    <import resource="classpath*:frameworkContext.xml"/>
+    <context:property-placeholder location="classpath:config/config.properties"/>
+    <context:component-scan base-package="mobile.*"/>
+
+    <bean id="driver" class="libraries.mobile.AppiumDriverFactory" factory-method="getInstance">
+        <constructor-arg value="${server_url}"/>
+        <constructor-arg value="${platform}"/>
+        <constructor-arg value="${real_device}"/>
+        <constructor-arg value="${ios_device_name}"/>
+        <constructor-arg value="${ios_device_udid}"/>
+        <constructor-arg value="${android_device_id}"/>
+        <constructor-arg value="${app_package}"/>
+        <constructor-arg value="${app_activity}"/>
+    </bean>
+
+</beans>
